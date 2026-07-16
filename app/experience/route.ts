@@ -8,6 +8,9 @@ const initialSessionJson = JSON.stringify(createInitialDemoSession());
 
 const resetLayer = String.raw`
 <style>
+  /* Keep the client demo's navigation rail clean across Chromium, Safari, and Firefox. */
+  .sb-nav{scrollbar-width:none !important;-ms-overflow-style:none !important}
+  .sb-nav::-webkit-scrollbar,.sb-nav *::-webkit-scrollbar{width:0 !important;height:0 !important;display:none !important;background:transparent !important}
   .demo-reset{border:1px solid #C8DDF1;background:#fff;color:#0B2D5E;border-radius:7px;padding:7px 10px;font:700 11px Inter,Arial,sans-serif;box-shadow:0 2px 8px #0B2D5E16;cursor:pointer}
   .demo-reset:hover{background:#EBF3FB}
   .sx-attribution{display:block;font:600 9px Inter,Arial,sans-serif;letter-spacing:.03em;color:#8290a4;margin-top:2px}
