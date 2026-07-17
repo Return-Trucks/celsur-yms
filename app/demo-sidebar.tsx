@@ -9,6 +9,7 @@ export const navGroups: NavGroup[] = [
   { id: "movement", label: "Movement", items: [{ label: "Daily Schedule", screen: "schedule", icon: "◷" }, { label: "Dock Calendar", screen: "dockcalendar", icon: "▥" }, { label: "Gate Management", screen: "gate", icon: "⇄" }, { label: "Dispatch & Comms", screen: "dispatch", icon: "◉" }] },
   { id: "tracking", label: "Tracking", items: [{ label: "Client Delivery", screen: "delivery", icon: "⊳" }, { label: "Empty Returns", screen: "empty", icon: "⟲" }] },
   { id: "containers", label: "Containers", items: [{ label: "Container 360", screen: "c360", icon: "⊡" }, { label: "All Containers", screen: "containers", icon: "▤" }, { label: "Demurrage", screen: "demurrage", icon: "$", badge: "7", alert: true }, { label: "Exceptions", screen: "exceptions", icon: "!", badge: "4" }, { label: "Documents", screen: "documents", icon: "▭" }] },
+  { id: "crossdock", label: "Cross-Dock", items: [{ label: "CD Dashboard", screen: "cd-dashboard", icon: "⇄" }, { label: "CD Orders", screen: "cd-orders", icon: "▤" }, { label: "Execution", screen: "cd-execution", icon: "→" }, { label: "Exceptions", screen: "cd-exceptions", icon: "!", badge: "3", alert: true }, { label: "Audit Trail", screen: "cd-audit", icon: "◷" }, { label: "EDI / SFTP", screen: "cd-edi", icon: "⌁" }] },
   { id: "performance", label: "Performance", items: [{ label: "Cycle Performance", screen: "cycle", icon: "◐" }, { label: "Reports", screen: "reports", icon: "◫" }] },
 ];
 

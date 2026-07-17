@@ -17,7 +17,7 @@ const maskEmbeddedSidebar = (iframe: HTMLIFrameElement | null) => {
   if (!document || document.getElementById("next-demo-sidebar-mask")) return;
   const style = document.createElement("style");
   style.id = "next-demo-sidebar-mask";
-  style.textContent = ".sidebar{visibility:hidden!important;pointer-events:none!important}";
+  style.textContent = ".sidebar{visibility:hidden!important;pointer-events:none!important}.sb{display:none!important}";
   document.head.appendChild(style);
 };
 
@@ -33,6 +33,7 @@ export default function Page() {
   const [expandedGroups, setExpandedGroups] = useState<string[]>(["operations"]);
   const [sidebarReady, setSidebarReady] = useState(false);
   const frame = useRef<HTMLIFrameElement>(null);
+  const experienceSource = screen.startsWith("cd-") ? "/crossdock" : "/experience";
 
   const navigate = useCallback((nextScreen: string) => {
     setScreen(nextScreen);
@@ -88,12 +89,13 @@ export default function Page() {
 
   return (
     <main className="demo-shell" aria-label="ShipmentX Celsur operations demo">
+      <style>{`.demo-shell{isolation:isolate}.demo-frame{position:absolute;inset:0 0 0 var(--demo-sidebar-width);width:calc(100% - var(--demo-sidebar-width));z-index:0}.demo-sidebar{z-index:20}`}</style>
       <DemoSidebar activeScreen={screen} expandedGroups={expandedGroups} onNavigate={navigate} onToggle={groupId => setExpandedGroups(groups => groups.includes(groupId) ? groups.filter(id => id !== groupId) : [...groups, groupId])} />
       <iframe
         className="demo-frame"
         title="ShipmentX Celsur Operations Console"
         ref={frame}
-        src={`/experience#${screen}`}
+        src={`${experienceSource}#${screen}`}
         onLoad={() => { maskEmbeddedSidebar(frame.current); frame.current?.contentWindow?.postMessage({ type: "shipmentx:navigate", screen }, window.location.origin); }}
         allow="clipboard-write"
       />
