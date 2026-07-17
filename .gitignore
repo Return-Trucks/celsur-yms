@@ -1,5 +1,6 @@
 node_modules
 .next
 .playwright-cli
+.vscode
 .env*
 !.env.example
